@@ -34,7 +34,8 @@
 		<div class="row">
 			<div class="col-lg-6 col-md-12">
 				<div class="left-footer-wrapper-3 pt--120 pb--80">
-					<img width="400" src="/wp-content/themes/fenitex/images/footer-logo.svg" alt="">
+					<img width="400" src="<?= get_template_directory_uri() . '/assets/images/footer-logo.svg' ?>"
+						alt="">
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-12">

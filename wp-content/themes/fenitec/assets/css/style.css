@@ -16030,6 +16030,33 @@ width: 140px;
   border-right: 1px solid #3f3f3f;
   border-left: 1px solid #3f3f3f;
 }
+
+.primary-menu li:hover > .sub-menu {
+    display: block;
+    background-color: #fff;
+}
+.primary-menu .sub-menu {
+  display: none;
+  position: absolute;
+  top: 62%;
+}
+.primary-menu li:hover > .sub-menu li {
+  margin: 0 !important;
+  padding: 10px 20px !important;
+}
+.primary-menu li:hover > .sub-menu li a {
+  color: #000;
+}
+ .primary-menu li:hover > .sub-menu li:hover a {
+  color: #996b48;
+}
+.side-bar .mobile-menu .my-custom-class ul li:hover .sub-menu {
+  position: relative;
+}
+.side-bar .mobile-menu .my-custom-class li:hover > .sub-menu li {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 @media screen and (max-width: 1280px) {
   .heder-two.header-five .header-two-container .header-main-wrapper .rts-header-right {
     border: none;
@@ -16952,6 +16979,7 @@ header.heder-two .main-nav-desk nav ul li.has-droupdown .submenu.menu-home li a 
   padding: 12px 0 17px 0;
   border-bottom: 1px solid #f3f3f3;
   cursor: pointer;
+  color: var(--color-gray);
 }
 .mobile-menu nav ul li.has-droupdown {
   position: relative;
@@ -17932,8 +17960,10 @@ edit .quantity-edit button {
   font-size: 48px;
   line-height: 58px;
   color: #0C0A0A;
-  margin-top: 12px;
   text-transform: uppercase;
+  width: 100%;
+    max-width: 650px;
+    margin: 12px auto 0;
 }
 
 .about-image-thumbnail-3 {
@@ -19460,14 +19490,15 @@ edit .quantity-edit button {
 }
 
 .rts-banner-three-area {
-  background: url("../images/bg.png") no-repeat #151515;
+  /* background: url("../images/bg.png") no-repeat #151515; */
      background-size:cover;
+     background-repeat: no-repeat;
      position: relative; 
 	 z-index: 1; 
 /*   position: relative;
   width: 100%;
   height: 100vh; /* Высота секции на весь экран */
-  overflow: hidden; */
+  overflow: hidden;
 }
 .rts-banner-three-area #background-video {
   position: absolute;
@@ -30973,8 +31004,8 @@ form.appoinment-form select option {
   margin-bottom: 25px;
   border: 1px solid transparent;
 }
-.form-wrapper .input-group .contact-form-contact input, .wpcf7-form-control-wrap input{
-	padding: 10px;
+.form-wrapper .input-group input{
+  padding: 10px;
 	width: 100%;
 	outline: none;
 	border-radius: 8px;
@@ -30983,6 +31014,33 @@ form.appoinment-form select option {
 	font-size: clamp(13px, 2vw, 18px);
 	background-color: #eee;
 }
+.form-wrapper .input-group input:focus {
+  box-shadow: none;
+}
+.form-wrapper .input-group textarea {
+  padding: 10px;
+	width: 100%;
+	outline: none;
+	border-radius: 8px;
+	margin-bottom: 5px;
+	border: 1px solid #996b48;
+	font-size: clamp(13px, 2vw, 18px);
+	background-color: #eee;
+  height: 150px;
+  background: #F6F6F6;
+  text-align: left;
+}
+.form-wrapper .input-group textarea:focus {
+  box-shadow: none;
+}
+
+.form-wrapper .input-group .contact-form-btn {
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 22px;
+  border-radius: 8px;
+}
+
 .contact-form-contact input:focus,.wpcf7-form-control-wrap input:focus {
   border: 1px solid var(--color-primary);
 }

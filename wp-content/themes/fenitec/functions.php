@@ -50,7 +50,7 @@ function fenitec_setup()
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__('Primary', 'fenitec'),
+			'header_menu' => esc_html__('Primary', 'fenitec'),
 		)
 	);
 
@@ -194,6 +194,20 @@ function fenitec_scripts()
 	}
 }
 add_action('wp_enqueue_scripts', 'fenitec_scripts');
+
+// ================================================================================
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page(array(
+		'page_title' => 'Настройка шапки',
+		'menu_title' => 'Настройка шапки',
+		'menu_slug' => 'header-settings',
+		'capability' => 'edit_posts',
+		'redirect' => false
+	));
+}
+// ================================================================================
+// ================================================================================
+// ================================================================================
 
 /**
  * Implement the Custom Header feature.
