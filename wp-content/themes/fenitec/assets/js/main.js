@@ -228,6 +228,16 @@ document.addEventListener(
   false
 );
 
+// ===========================================================================
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 4,
+  spaceBetween: 30,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+// ===========================================================================
 // header language dropdown js
 // document.addEventListener("DOMContentLoaded", function () {
 //     const dropdown = document.querySelector(".language-dropdown");

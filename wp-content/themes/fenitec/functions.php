@@ -178,6 +178,7 @@ function fenitec_scripts()
 	wp_enqueue_style('fenitec-style2', get_template_directory_uri() . '/assets/css/unicons.css', false, null);
 	wp_enqueue_style('fenitec-style33', get_template_directory_uri() . '/assets/css/fontawesome-5.css', false, null);
 	wp_enqueue_style('fenitec-style5', get_template_directory_uri() . '/assets/css/bootstrap.min.css', false, null);
+	wp_enqueue_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
 	wp_enqueue_style('fenitec-style6', get_template_directory_uri() . '/assets/css/style.css', false, null);
 
 	wp_enqueue_script('fenitec-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
@@ -186,6 +187,7 @@ function fenitec_scripts()
 	wp_enqueue_script('fenitec-navigation7', get_template_directory_uri() . '/assets/js/metismenu.js', false, true);
 	wp_enqueue_script('fenitec-navigation10', get_template_directory_uri() . '/assets/js/sal.min.js', false, true);
 	wp_enqueue_script('fenitec-navigation11', get_template_directory_uri() . '/assets/js/jquery-ui.js', false, true);
+	wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', false, true);
 	wp_enqueue_script('fenitec-navigation12', get_template_directory_uri() . '/assets/js/bootstrap.min.js', false, true);
 	wp_enqueue_script('fenitec-navigation13', get_template_directory_uri() . '/assets/js/main.js', false, true);
 

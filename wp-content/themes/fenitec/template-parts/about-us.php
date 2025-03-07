@@ -40,24 +40,19 @@ get_header();
 </div>
 <!-- navigation table end-->
 
-<div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg-breadcrumb bg_image">
+<div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg-breadcrumb bg_image"
+    style="background-image: url(<?= the_field('about_company_banner_image') ?>);">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <!-- bread crumb inner wrapper -->
                 <div class="breadcrumb-inner text-center">
-                    <h1 class="title">О компании</h1>
+                    <h1 class="title"><?= the_field('banner_header_title'); ?></h1>
                     <?php
                     if (function_exists('yoast_breadcrumb')) {
                         yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
                     }
                     ?>
-                    <!-- <div class="meta">
-                        <a href="https://fenitec.uz/" class="prev">Главная /</a>
-                        <a href="#" class="next">О компании</a>
-                    </div> -->
                 </div>
-                <!-- bread crumb inner wrapper end -->
             </div>
         </div>
     </div>
@@ -69,11 +64,9 @@ get_header();
             <div class="col-lg-5">
                 <div class="about-image-thumbnail-3">
                     <img decoding="async" class="image-1 sal-animate" data-sal="slide-up" data-sal-delay="100"
-                        data-sal-duration="800" src="<?= get_template_directory_uri() . '/assets/images/02_1.jpg' ?>"
-                        alt="about-image">
+                        data-sal-duration="800" src="<?= the_field('about_content_image'); ?>" alt="about-image">
                     <img decoding="async" class="image-2 sal-animate" data-sal="slide-up" data-sal-delay="300"
-                        data-sal-duration="800" src="<?= get_template_directory_uri() . '/assets/images/03_2.jpg' ?>"
-                        alt="about-image">
+                        data-sal-duration="800" src="<?= the_field('about_content_image_extra'); ?>" alt="about-image">
                 </div>
             </div>
             <div class="col-lg-7 pl--60 p-md-0">
@@ -82,17 +75,8 @@ get_header();
                         data-sal-duration="800">
                         <div class="single-tab-content-three">
                             <p class="disc">
-                                ООО «Mega Elektro Kabel» было основано в 2013 году. В тот же год в целях удовлетворения
-                                растущего спроса рынка Центральной Азии на обмоточные провода компания зарегистрировала
-                                свою торговую марку «FENITEC». За короткий период компания заняла лидирующие позиции на
-                                локальном рынке и начала расширение продукции на глобальном уровне.
+                                <?php the_content()?>
                             </p>
-                            <p>Отличительной особенностью FENITEC является наличие и использование новейших
-                                инновационных производственных систем, передовых технологий и процессов автоконтроля.
-                                Все это обеспечивает полный ассортимент высококачественной продукции и повышенную
-                                производительность компании.
-                                Компания полностью контролирует производственную и логистическую цепочку, обеспечивая
-                                своевременную доставку и высокое качество.</p>
                         </div>
                     </div>
                 </div>

@@ -134,7 +134,7 @@ get_header();
             <div class="col-lg-12">
                 <div class="title-three-center">
                     <h3 class="title sal-animate" data-sal="slide-up" data-sal-delay="350" data-sal-duration="800">
-                        <?= the_field('product_header_title_extra');?>
+                        <?= the_field('product_header_title_extra'); ?>
                     </h3>
                 </div>
             </div>
@@ -185,33 +185,29 @@ get_header();
                 <div class="row align-items-start">
                     <div class="col-lg-5">
                         <div class="about-image-thumbnail-3">
-                            <img class="image-1" src="<?= get_template_directory_uri() . '/assets/images/02_1.jpg' ?>"
-                                alt="about-image" data-sal="slide-up" data-sal-delay="100" data-sal-duration="800" />
-                            <img class="image-2" src="<?= get_template_directory_uri() . '/assets/images/03_2.jpg' ?>"
-                                alt="about-image" data-sal="slide-up" data-sal-delay="300" data-sal-duration="800" />
+                            <img class="image-1" src="<?php the_field('about_image'); ?>" alt="about-image"
+                                data-sal="slide-up" data-sal-delay="100" data-sal-duration="800" />
+                            <img class="image-2" src="<?php the_field('about_extra_image') ?>" alt="about-image"
+                                data-sal="slide-up" data-sal-delay="300" data-sal-duration="800" />
                         </div>
                     </div>
                     <div class="col-lg-7 pl--60 p-md-0">
                         <div class="about-three-wrapper">
                             <div class="title-three-left">
                                 <h3 class="title animated fadeIn sal-animate" data-sal="slide-up" data-sal-delay="100"
-                                    data-sal-duration="800">О КОМПАНИИ</h3>
+                                    data-sal-duration="800">
+                                    <?php the_field('about_header_title') ?>
+                                </h3>
                             </div>
                             <div class="rts-tab-three-start" data-sal="slide-up" data-sal-delay="400"
                                 data-sal-duration="800">
                                 <div class="single-tab-content-three">
-                                    <p class="disc">ООО «Mega Elektro Kabel» было основано в 2013 году. В тот же год в
-                                        целях удовлетворения растущего спроса рынка Центральной Азии на обмоточные
-                                        провода компания зарегистрировала свою торговую марку «FENITEC». За короткий
-                                        период компания заняла лидирующие позиции на локальном рынке и начала расширение
-                                        продукции на глобальном уровне.</p>
-                                    <p>Отличительной особенностью FENITEC является наличие и использование новейших
-                                        инновационных производственных систем, передовых технологий и процессов
-                                        автоконтроля. Все это обеспечивает полный ассортимент высококачественной
-                                        продукции и повышенную производительность компании. Компания полностью
-                                        контролирует производственную и логистическую цепочку, обеспечивая своевременную
-                                        доставку и высокое качество.</p>
-                                    <a class="rts-btn btn-seconday" href="/?page_id=12">Подробнее</a>
+                                    <p class="disc">
+                                        <?php the_field('about_description'); ?>
+                                    </p>
+                                    <a class="rts-btn btn-seconday" href="/?page_id=12">
+                                        <?php the_field('about_button_title'); ?>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -222,70 +218,51 @@ get_header();
     </div>
 </div>
 
-<div class="rts-about-area rts-section-gap3" id="post-20">
-    <div class="container">
-        <div class="row align-items-center mt--100 mb--100">
-            <div class="col-lg-7 pl--60 p-md-0">
-                <div class="about-three-wrapper">
-                    <div class="title-three-left">
-                        <h3 class="title animated fadeIn sal-animate" data-sal="slide-up" data-sal-delay="100"
-                            data-sal-duration="800">Улучшенное качество</h3>
-                    </div>
-                    <div class="rts-tab-three-start" data-sal="slide-up" data-sal-delay="400" data-sal-duration="800">
-                        <div class="single-tab-content-three">
-                            <p>Процесс производства круглых и прямоугольных обмоточных проводов из меди и алюминия,
-                                разработанный нашей компанией включает в себя расширенный контроль качества и мониторинг
-                                производства в режиме реального времени.</p>
-                            <p>Качество продукции предприятия соответствуют международным и национальным нормативным
-                                документам такими как:<br /><br />- Международная электротехническая комиссия IEC
-                                60317;<br />- Межгосударственный стандарт стран СНГ – ГОСТ Р МЭК 60317 <br />-
-                                Национальный
-                                стандарт O`zDst IEC 60317</p>
-                        </div>
-                    </div>
+<div class="container">
+    <div class="row align-items-center mt--100 mb--100">
+        <div class="col-lg-7 pl--60 p-md-0">
+            <div class="about-three-wrapper">
+                <div class="title-three-left">
+                    <h3 class="title animated fadeIn sal-animate" data-sal="slide-up" data-sal-delay="100"
+                        data-sal-duration="800"><?= the_field('quality_header_title'); ?></h3>
                 </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="about-image-thumbnail-4 text-right pl--40">
-                    <img class="image-2" src="<?= get_template_directory_uri() . '/assets/images/7.png' ?>"
-                        alt="about-image" data-sal="slide-up" data-sal-delay="300" data-sal-duration="800" />
+                <div class="rts-tab-three-start" data-sal="slide-up" data-sal-delay="400" data-sal-duration="800">
+                    <div class="single-tab-content-three">
+                        <p>
+                            <?= get_field('quality_description') ?>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="about-three-wrapper">
-            <div class="sertificate-wrapper">
-                <div class="image-wrapper">
-                    <div><img src="<?= get_template_directory_uri() . '/assets/images/s-1.jpg' ?>" alt="img"
-                            data-sal="slide-up" data-sal-delay="100" data-sal-duration="800" /></div>
-                    <div><img src="<?= get_template_directory_uri() . '/assets/images/s-1.jpg' ?>" alt="img"
-                            data-sal="slide-up" data-sal-delay="300" data-sal-duration="800" /></div>
-                    <div><img src="<?= get_template_directory_uri() . '/assets/images/s-1.jpg' ?>" alt="img"
-                            data-sal="slide-up" data-sal-delay="500" data-sal-duration="800" /></div>
-                </div>
-                <div class="content-wrapper" data-sal="slide-up" data-sal-delay="400" data-sal-duration="800">
-                    <h3 class="content-header-title mt--40">Сертификация качества: ваше доверие — наша гордость</h3>
-                    <p class="content-middle-title">OOO "Mega Elektro Kabel" понимает, что высокие стандарты качества,
-                        безопасности и экологической ответственности - это ключи к вашему успеху. Fenitec гордится
-                        наличием
-                        международных сертификатов ISO 9001, ISO 14001 и ISO 45001, которые подтверждают:</p>
-                    <p class="content-middle-title-item">-ISO 9001: Гарантия непревзойденного качества продукции и
-                        услуг,
-                        соответствующих самым строгим требованиям.</p>
-                    <p class="content-middle-title-item">-ISO 14001: Приверженность к охране окружающей среды и
-                        устойчивому
-                        развитию, с минимальным воздействием на природу.</p>
-                    <p class="content-middle-title-item">-ISO 45001: Обеспечение безопасных и здоровых условий труда для
-                        наших сотрудников и партнеров.</p>
-                    <p class="content-bottom-title">С сертификацией от Fenitec вы можете быть уверены в надежности,
-                        безопасности и ответственности каждого нашего продукта. Давайте строить будущее вместе!</p>
-                </div>
+        <div class="col-lg-5">
+            <div class="about-image-thumbnail-4 text-right pl--40">
+                <img class="image-2" src="<?= the_field('quality_image'); ?>" alt="about-image" data-sal="slide-up"
+                    data-sal-delay="300" data-sal-duration="800" />
+            </div>
+        </div>
+    </div>
+    <div class="about-three-wrapper">
+        <div class="sertificate-wrapper">
+            <div class="image-wrapper">
+                <div><img src="<?= the_field('quality_image_certificate_1'); ?>" alt="img" data-sal="slide-up"
+                        data-sal-delay="100" data-sal-duration="800" /></div>
+                <div><img src="<?= the_field('quality_image_certificate_2'); ?>" alt="img" data-sal="slide-up"
+                        data-sal-delay="300" data-sal-duration="800" /></div>
+                <div><img src="<?= the_field('quality_image_certificate_3'); ?>" alt="img" data-sal="slide-up"
+                        data-sal-delay="500" data-sal-duration="800" /></div>
+            </div>
+            <div class="content-wrapper" data-sal="slide-up" data-sal-delay="400" data-sal-duration="800">
+                <p class="content-middle-title">
+                    <?php the_field('extra_description'); ?>
+                </p>
             </div>
         </div>
     </div>
 </div>
 
 <div class="rts-experience-area rts-section-gap3 bg-experience" data-sal="slide-up" data-sal-delay="200"
-    data-sal-duration="800">
+    data-sal-duration="800" style="background-image: url(<?= the_field('info_image') ?>);">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -328,6 +305,23 @@ get_header();
         </div>
     </div>
 </div>
+
+<!-- swiper start -->
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+<!-- swiper end -->
 
 <div class="rts-about-area rts-section-gap3">
     <div class="container">

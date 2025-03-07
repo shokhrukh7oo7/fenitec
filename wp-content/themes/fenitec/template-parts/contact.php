@@ -5,20 +5,21 @@
 get_header();
 ?>
 
-<div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg-breadcrumb bg_image">
+<div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg-breadcrumb bg_image"
+    style="background-image: url(<?= the_field('contact_banner_image') ?>);">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <!-- bread crumb inner wrapper -->
                 <div class="breadcrumb-inner text-center">
-                    <h1 class="title">Контакты</h1>
+                    <h1 class="title">
+                        <?= the_field('contact_header_title'); ?>
+                    </h1>
                     <?php
                     if (function_exists('yoast_breadcrumb')) {
                         yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
                     }
                     ?>
                 </div>
-                <!-- bread crumb inner wrapper end -->
             </div>
         </div>
     </div>
@@ -29,68 +30,60 @@ get_header();
         <div class="row">
             <div class="col-12 col-lg-6 mt-5">
                 <div class="row g-24">
-                    <!-- single contact area -->
                     <div class="col-12">
                         <div class="single-contact-one-inner">
                             <div class="content">
                                 <div class="icone">
-                                    <img src="/wp-content/themes/fenitex/images/contact/shape/01.svg" alt="">
+                                    <img src="<?= the_field('phone_image'); ?>" alt="">
                                 </div>
                                 <div class="info">
-                                    <span>Телефон</span>
-                                    <a href="tel:+998903229988">
-                                        <h5>+998 (90) 322-99-88</h5>
+                                    <span><?= the_field('phone_title'); ?></span>
+                                    <a href="tel:<?= the_field('phone_link_1'); ?>">
+                                        <h5><?= the_field('phone_number_1'); ?></h5>
                                     </a>
-                                    <a href="tel:+998977410140">
-                                        <h5>+998 (97) 741-01-40</h5>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- single contact area end -->
-                    <!-- single contact area -->
-                    <div class="col-12">
-                        <div class="single-contact-one-inner">
-                            <div class="content">
-                                <div class="icone">
-                                    <img src="/wp-content/themes/fenitex/images/contact/shape/02.svg" alt="">
-                                </div>
-                                <div class="info">
-                                    <span>Email</span>
-                                    <a href="mailto:sales@fenitec.uz">
-                                        <h5>sales@fenitec.uz</h5>
+                                    <a href="tel:<?= the_field('phone_link_2'); ?>">
+                                        <h5><?= the_field('phone_number_2'); ?></h5>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- single contact area end -->
-                    <!-- single contact area -->
                     <div class="col-12">
                         <div class="single-contact-one-inner">
                             <div class="content">
                                 <div class="icone">
-                                    <img src="/wp-content/themes/fenitex/images/contact/shape/03.svg" alt="">
+                                    <img src="<?= the_field('email_image'); ?>" alt="">
                                 </div>
                                 <div class="info">
-                                    <span>Aдрес</span>
+                                    <span><?= the_field('email_title'); ?></span>
+                                    <a href="mailto:<?= the_field('email_link'); ?>">
+                                        <h5><?= the_field('email_text'); ?></h5>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="single-contact-one-inner">
+                            <div class="content">
+                                <div class="icone">
+                                    <img src="<?= the_field('location_image'); ?>" alt="">
+                                </div>
+                                <div class="info">
+                                    <span><?= the_field('location_title'); ?></span>
                                     <a href="#">
-                                        <h5>Узбекистан, город Ташкент, улица Уста Ширин, 100057, дом 136</h5>
+                                        <h5><?= the_field('location_text'); ?></h5>
                                     </a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- single contact area end -->
                 </div>
             </div>
 
             <div class="col-12 col-lg-6 mt-5" id="contact-map">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d374.35937334903974!2d69.24498249385213!3d41.35507089898958!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8c8b9833c071%3A0x431a370d75a7cd93!2zMTM2LTEzNSwgVXN0YSBTaGlyaW4gU3RyZWV0LCBUYXNoa2VudCwg0KPQt9Cx0LXQutC40YHRgtCw0L0!5e0!3m2!1sru!2s!4v1729848408787!5m2!1sru!2s"
-                    width="600" height="525" style="border:0;" allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="<?= the_field('google_maps'); ?>" width="600" height="525" style="border:0;"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>

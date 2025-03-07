@@ -16780,7 +16780,50 @@ header.header-three .main-nav-desk nav ul li.has-droupdown .submenu.inner-page l
   padding: 0px 15px;
   margin: 0px 0;
 }
+#breadcrumbs span a {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 0 2px;
+  transition: 0.3s;
+}
 
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#breadcrumbs .breadcrumb_last {
+  font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin: 0 2px;
+    transition: 0.3s;
+    text-decoration: underline;
+}
+.quality-row {
+  margin: clamp(20px, 8vw, 100px) 0;
+}
 .onepage ul li.current a {
   color: var(--color-primary) !important;
 }
