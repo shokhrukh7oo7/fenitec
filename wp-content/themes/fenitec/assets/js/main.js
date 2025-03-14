@@ -229,13 +229,28 @@ document.addEventListener(
 );
 
 // ===========================================================================
-var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 4,
-  spaceBetween: 30,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
+$(document).ready(function () {
+  $(".owl-carousel").owlCarousel({
+    loop: true,
+    margin: 30,
+    responsiveClass: true,
+    autoplay: true,
+    autoplayTimeout: 2500,
+    responsive: {
+      0: {
+        items: 1,
+      },
+      576: {
+        items: 2,
+      },
+      768: {
+        items: 3,
+      },
+      1000: {
+        items: 5,
+      },
+    },
+  });
 });
 // ===========================================================================
 // header language dropdown js

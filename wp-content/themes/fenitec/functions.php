@@ -170,7 +170,6 @@ function fenitec_scripts()
 {
 	wp_enqueue_style('fenitec-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('fenitec-style', 'rtl', 'replace');
-
 	// CUSTOM CSS 
 	wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css', false, null);
 	wp_enqueue_style('fenitec-style3', get_template_directory_uri() . '/assets/css/metismenu.css', false, null);
@@ -178,7 +177,8 @@ function fenitec_scripts()
 	wp_enqueue_style('fenitec-style2', get_template_directory_uri() . '/assets/css/unicons.css', false, null);
 	wp_enqueue_style('fenitec-style33', get_template_directory_uri() . '/assets/css/fontawesome-5.css', false, null);
 	wp_enqueue_style('fenitec-style5', get_template_directory_uri() . '/assets/css/bootstrap.min.css', false, null);
-	wp_enqueue_style('swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+	wp_enqueue_style('owl-carousel', get_template_directory_uri() . '/assets/css/owl.carousel.min.css', false, null);
+	wp_enqueue_style('owl-carousel-min', get_template_directory_uri() . '/assets/css/owl.theme.default.min.css', false, null);
 	wp_enqueue_style('fenitec-style6', get_template_directory_uri() . '/assets/css/style.css', false, null);
 
 	wp_enqueue_script('fenitec-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
@@ -187,9 +187,10 @@ function fenitec_scripts()
 	wp_enqueue_script('fenitec-navigation7', get_template_directory_uri() . '/assets/js/metismenu.js', false, true);
 	wp_enqueue_script('fenitec-navigation10', get_template_directory_uri() . '/assets/js/sal.min.js', false, true);
 	wp_enqueue_script('fenitec-navigation11', get_template_directory_uri() . '/assets/js/jquery-ui.js', false, true);
-	wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', false, true);
 	wp_enqueue_script('fenitec-navigation12', get_template_directory_uri() . '/assets/js/bootstrap.min.js', false, true);
 	wp_enqueue_script('fenitec-navigation13', get_template_directory_uri() . '/assets/js/main.js', false, true);
+	wp_enqueue_script('owl-carousel-min', get_template_directory_uri() . '/assets/js/car.jquery.min.js', array('jquery'), null, true);
+	wp_enqueue_script('owl-carousel', get_template_directory_uri() . '/assets/js/owl.carousel.min.js', false, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
@@ -208,7 +209,53 @@ if (function_exists('acf_add_options_page')) {
 	));
 }
 // ================================================================================
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page(array(
+		'page_title' => 'Настройка виджетов',
+		'menu_title' => 'Настройка виджетов',
+		'menu_slug' => 'widget-settings',
+		'capability' => 'edit_posts',
+		'redirect' => false
+	));
+}
 // ================================================================================
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page(array(
+		'page_title' => 'Настройка подвала',
+		'menu_title' => 'Настройка подвала',
+		'menu_slug' => 'footer-settings',
+		'capability' => 'edit_posts',
+		'redirect' => false
+	));
+}
+// ================================================================================
+function register_custom_products()
+{
+	$args = array(
+		'label' => 'Продукты',
+		'public' => true,
+		'show_in_menu' => true,
+		'menu_position' => 5,
+		'menu_icon' => 'dashicons-cart', // Иконка в админке
+		'supports' => array('title', 'thumbnail', 'editor'),
+		'has_archive' => true,
+		'rewrite' => array('slug' => 'products'),
+	);
+	register_post_type('product', $args);
+}
+add_action('init', 'register_custom_products');
+
+// ================================================================================
+function create_product_taxonomy()
+{
+	register_taxonomy('product_category', 'product', array(
+		'label' => 'Категория продуктов',
+		'hierarchical' => true,
+		'rewrite' => array('slug' => 'product-category'),
+	));
+}
+add_action('init', 'create_product_taxonomy');
+
 // ================================================================================
 
 /**

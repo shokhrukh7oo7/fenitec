@@ -5,6 +5,8 @@
 get_header();
 ?>
 
+<?php get_template_part('template-parts/widgets'); ?>
+
 <div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg-breadcrumb bg_image"
     style="background-image: url(<?= the_field('contact_banner_image') ?>);">
     <div class="container">
@@ -12,7 +14,7 @@ get_header();
             <div class="col-lg-12">
                 <div class="breadcrumb-inner text-center">
                     <h1 class="title">
-                        <?= the_field('contact_header_title'); ?>
+                        <?= the_field('contact_header'); ?>
                     </h1>
                     <?php
                     if (function_exists('yoast_breadcrumb')) {
@@ -136,6 +138,7 @@ get_header();
             </div>
         </div>
     </div>
-</div <?php
+</div>
+<?php
 get_footer();
 ?>

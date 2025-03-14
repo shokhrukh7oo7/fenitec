@@ -5,6 +5,8 @@
 get_header();
 ?>
 
+<?php get_template_part('template-parts/widgets'); ?>
+
 <div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg-breadcrumb bg_image"
     style="background-image: url(<?= the_field('quality_banner_image') ?>);">
     <div class="container">

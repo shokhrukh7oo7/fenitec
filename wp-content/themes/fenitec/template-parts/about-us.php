@@ -5,40 +5,7 @@
 get_header();
 ?>
 
-<!-- wp:html -->
-<!-- social media link start -->
-<div class="social-media-wrapper">
-    <div class="social-media-links-wrapper">
-        <div class="social-links">
-            <a href="https://www.instagram.com/fenitec.uz?igsh=MXU4OGtvZ3JwMm9jdQ=="><i
-                    class="fa-brands fa-instagram"></i></a>
-            <a href="https://t.me/fenitec"><i class="fa-brands fa-telegram"></i></a>
-        </div>
-    </div>
-</div>
-<!-- social media link end -->
-
-<!-- navigation table start -->
-<div class="pulse-wrapper">
-    <div class="call-center-links" name="links">
-        <div class="links-wrapper">
-            <a href="tel:+998903229988"><i class="fa-solid fa-phone"></i></a>
-            <a href="mailto:sales@fenitec.uz"><i class="fa-solid fa-message"></i></a>
-        </div>
-        <div class="icon close-icon">
-            &times;
-        </div>
-    </div>
-    <div class="call-center-wrapper" name="center">
-        <div class="icon call-icon">
-            <i class="fa-solid fa-phone"></i>
-        </div>
-        <div class="icon message-icon">
-            <i class="fa-solid fa-message"></i>
-        </div>
-    </div>
-</div>
-<!-- navigation table end-->
+<?php get_template_part('template-parts/widgets'); ?>
 
 <div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg-breadcrumb bg_image"
     style="background-image: url(<?= the_field('about_company_banner_image') ?>);">
@@ -75,7 +42,7 @@ get_header();
                         data-sal-duration="800">
                         <div class="single-tab-content-three">
                             <p class="disc">
-                                <?php the_content()?>
+                                <?php the_content() ?>
                             </p>
                         </div>
                     </div>

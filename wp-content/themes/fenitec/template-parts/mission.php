@@ -5,6 +5,8 @@
 get_header();
 ?>
 
+<?php get_template_part('template-parts/widgets'); ?>
+
 <div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg-breadcrumb bg_image"
     style="background-image: url(<?= the_field('mission_banner_image') ?>);">
     <div class="container">
@@ -53,6 +55,7 @@ get_header();
 
 <div class="rts-experience-area rts-section-gap3 bg-experience sal-animate" data-sal="slide-up" data-sal-delay="200"
     data-sal-duration="800" style="background-image: url(<?= the_field('lucky_mission_banner_image') ?>);">
+    <div class="container">
     <div class="row mt--50">
         <div class="col-lg-12">
             <div class="title-three-left">
@@ -79,6 +82,7 @@ get_header();
                 </div>
             <?php endif; ?>
         </div>
+    </div>
     </div>
 </div>
 

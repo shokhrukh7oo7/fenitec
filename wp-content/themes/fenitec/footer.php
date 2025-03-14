@@ -34,7 +34,7 @@
 		<div class="row">
 			<div class="col-lg-6 col-md-12">
 				<div class="left-footer-wrapper-3 pt--120 pb--80">
-					<img width="400" src="<?= get_template_directory_uri() . '/assets/images/footer-logo.svg' ?>"
+					<img width="400" src="<?= the_field('footer_logo', 'options');?>"
 						alt="">
 				</div>
 			</div>
@@ -55,34 +55,33 @@
 							?>
 						</h5>
 						<div class="single-information">
-							<a href="mailto:sales@fenitec.uz" class="number" data-sal="slide-up" data-sal-delay="350"
+							<a href="mailto:<?= the_field('footer_email', 'options');?>" class="number" data-sal="slide-up" data-sal-delay="350"
 								data-sal-duration="800" style="display: block;">
-								sales@fenitec.uz
+								<?= the_field('text_email', 'options');?>
 							</a>
-							<a href="tel:+998903229988" class="number" data-sal="slide-up" data-sal-delay="350"
+							<a href="tel:<?= the_field('phone_number_link', 'options');?>" class="number" data-sal="slide-up" data-sal-delay="350"
 								data-sal-duration="800" style="display: block;">
-								+998 (90) 322-99-88
+								<?= the_field('phone_number', 'options');?>
 							</a>
-							<a href="tel:+998712480028" class="number" data-sal="slide-up" data-sal-delay="550"
+							<a href="tel:<?= the_field('phone_number_link_extra', 'options');?>" class="number" data-sal="slide-up" data-sal-delay="550"
 								data-sal-duration="800" style="display: block;">
-								+998 (71) 248-00-28
+								<?= the_field('phone_number_extra', 'options');?>
 							</a>
 						</div>
 						<div class="rts-social-wrapper-three">
-							<ul>
-								<li data-sal="slide-up" data-sal-delay="100" data-sal-duration="800"
-									class="sal-animate">
-									<a href="https://t.me/fenitec_uz">
-										<i class="fa-brands fa-telegram"></i>
-									</a>
-								</li>
-								<li data-sal="slide-up" data-sal-delay="200" data-sal-duration="800"
-									class="sal-animate">
-									<a href="https://wa.link/jippxj">
-										<i class="fa-brands fa-whatsapp"></i>
-									</a>
-								</li>
-							</ul>
+							<?php if (have_rows('social_links', 'options')): ?>
+								<ul>
+									<?php while (have_rows('social_links', 'options')):
+										the_row(); ?>
+										<li data-sal="slide-up" data-sal-delay="100" data-sal-duration="800"
+											class="sal-animate">
+											<a href="<?php the_sub_field('url', 'options'); ?>">
+												<img src="<?php the_sub_field('icon', 'options');?>" alt="image">
+											</a>
+										</li>
+									<?php endwhile; ?>
+								</ul>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>

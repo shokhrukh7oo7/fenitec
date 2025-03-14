@@ -5,12 +5,15 @@
 get_header();
 ?>
 
-<div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg-breadcrumb bg_image">
+<?php get_template_part('template-parts/widgets'); ?>
+
+<div class="rts-bread-crumb-area ptb--150 ptb_sm--100 bg-breadcrumb bg_image"
+    style="background-image: url(<?= the_field('products_banner_image') ?>);">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="breadcrumb-inner text-center">
-                    <h1 class="title">Продукты</h1>
+                    <h1 class="title"><? the_field('banner_header_title'); ?></h1>
                     <?php
                     if (function_exists('yoast_breadcrumb')) {
                         yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
@@ -27,119 +30,80 @@ get_header();
         <div class="row align-items-center">
             <div class="col-lg-5 ">
                 <div class="about-image-thumbnail-4 text-left"><img fetchpriority="high" decoding="async"
-                        class="alignnone wp-image-576 size-medium"
-                        src="<?= get_template_directory_uri() . '/assets/images/t-2.jpg' ?>" alt="" width="300"
-                        height="225">
+                        class="alignnone wp-image-576 size-medium" src="<?= the_field('products_image'); ?>" alt="image"
+                        width="300" height="225">
                 </div>
             </div>
             <div class="col-lg-7 pl--60 p-md-0">
                 <div class="about-three-wrapper">
                     <div class="title-three-left">
                         <h3 class="title animated fadeIn sal-animate" data-sal="slide-up" data-sal-delay="100"
-                            data-sal-duration="800">Продукция</h3>
+                            data-sal-duration="800"><?= the_content(); ?></h3>
                     </div>
-                    <div class="rts-tab-three-start sal-animate" data-sal="slide-up" data-sal-delay="400"
-                        data-sal-duration="800">
-                        <div class="single-tab-content-three">
-                            <p>FENITEC предлагает широкий ассортимент обмоточных проводов из меди и алюминия для
-                                всех видов применения как в повседневности, так и в современной инфраструктуре.
-                                Также компания предлагает индивидуальные решения для клиентов, разработанные с
-                                учетом всех возможных потребностей. Вся продукция производится с использованием
-                                высокоточного процесса и самых современных технологий.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt--50">
+            <?php
+            // Получаем все категории
+            $categories = get_terms(array(
+                'taxonomy' => 'product_category',
+                'hide_empty' => false,
+            ));
+
+            if (!empty($categories)):
+                foreach ($categories as $category): ?>
+                    <div class="col-lg-12">
+                        <div class="title-three-center">
+                            <h3 class="title sal-animate" data-sal="slide-up" data-sal-delay="350" data-sal-duration="800">
+                                <?= esc_html($category->name); ?>
+                            </h3>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row mt-70">
-            <div class="col-lg-12">
-                <div class="title-three-center">
-                    <h3 class="title sal-animate" data-sal="slide-up" data-sal-delay="350" data-sal-duration="800">
-                        Обмоточные провода<br>из МЕДИ</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row mt--50">
-            <div class="col-lg-4 col-md-6"><!-- single team one start -->
-                <div class="single-team-three">
-                    <div class="thumbnail"><img class="alignnone size-medium wp-image-559"
-                            src="<?= get_template_directory_uri() . '/assets/images/t-4.jpg' ?>" alt="" width="225"
-                            height="300" /></div>
-                    <div class="content-area">
-                        <a href="https://fenitec.uz/?p=24" class="name">Круглый эмалированный провод из меди</a>
+
+                    <div class="row mt--50">
+                        <?php
+                        $args = array(
+                            'post_type' => 'product',
+                            'posts_per_page' => -1, // Получаем все продукты
+                            'offset' => 3,  // Пропускаем первые 3 продукта
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'product_category',
+                                    'field' => 'term_id',
+                                    'terms' => $category->term_id,
+                                ),
+                            ),
+                        );
+
+                        $query = new WP_Query($args);
+                        if ($query->have_posts()):
+                            while ($query->have_posts()):
+                                $query->the_post();
+                                ?>
+                                <div class="col-lg-4 col-md-6 my-4">
+                                    <div class="single-team-three">
+                                        <div class="thumbnail">
+                                            <img src="<?= get_the_post_thumbnail_url(); ?>" alt="<?= esc_attr(get_the_title()); ?>"
+                                                width="225" height="300" />
+                                        </div>
+                                        <div class="content-area">
+                                            <a href="<?= get_permalink(); ?>" class="name"><?= get_the_title(); ?></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endwhile;
+                            wp_reset_postdata();
+                        else: ?>
+                            <div class="col-lg-12">
+                                <p>Другие продукты в этой категории отсутствуют.</p>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                </div>
-                <!-- single team one start -->
-            </div>
-            <div class="col-lg-4 col-md-6"><!-- single team one start -->
-                <div class="single-team-three">
-                    <div class="thumbnail"><img class="alignnone size-medium wp-image-554"
-                            src="<?= get_template_directory_uri() . '/assets/images/t-5.jpg' ?>" alt="" width="225"
-                            height="300" /></div>
-                    <div class="content-area">
-                        <a href="https://fenitec.uz/?p=27" class="name">Прямоугольный эмалированный провод из меди</a>
-                    </div>
-                </div>
-                <!-- single team one start -->
-            </div>
-            <div class="col-lg-4 col-md-6"><!-- single team one start -->
-                <div class="single-team-three">
-                    <div class="thumbnail"><img class="alignnone size-medium wp-image-555"
-                            src="<?= get_template_directory_uri() . '/assets/images/t-3.jpg' ?>" alt="" width="225"
-                            height="300" /></div>
-                    <div class="content-area">
-                        <a href="https://fenitec.uz/?p=29" class="name">Прямоугольный провод с бумажной изоляцией из
-                            меди</a>
-                    </div>
-                </div>
-                <!-- single team one start -->
-            </div>
-        </div>
-        <div class="row pt--80">
-            <div class="col-lg-12">
-                <div class="title-three-center">
-                    <h3 class="title sal-animate" data-sal="slide-up" data-sal-delay="350" data-sal-duration="800">
-                        Обмоточные провода<br>из АЛЮМИНИЯ</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row mt--50">
-            <div class="col-lg-4 col-md-6"><!-- single team one start -->
-                <div class="single-team-three">
-                    <div class="thumbnail"><img class="alignnone size-medium wp-image-558"
-                            src="<?= get_template_directory_uri() . '/assets/images/t-4.jpg' ?>" alt="" width="225"
-                            height="300" /></div>
-                    <div class="content-area">
-                        <a href="https://fenitec.uz/?p=31" class="name">Круглый эмалированный провод из алюминия</a>
-                    </div>
-                </div>
-                <!-- single team one start -->
-            </div>
-            <div class="col-lg-4 col-md-6"><!-- single team one start -->
-                <div class="single-team-three">
-                    <div class="thumbnail"><img class="alignnone size-medium wp-image-557"
-                            src="<?= get_template_directory_uri() . '/assets/images/t-5.jpg' ?>" alt="" width="225"
-                            height="300" /></div>
-                    <div class="content-area">
-                        <a href="https://fenitec.uz/?p=33" class="name">Прямоугольный эмалированный провод из
-                            алюминия</a>
-                    </div>
-                </div>
-                <!-- single team one start -->
-            </div>
-            <div class="col-lg-4 col-md-6"><!-- single team one start -->
-                <div class="single-team-three">
-                    <div class="thumbnail"><img class="alignnone size-medium wp-image-555"
-                            src="<?= get_template_directory_uri() . '/assets/images/t-3.jpg' ?>" alt="" width="225"
-                            height="300" /></div>
-                    <div class="content-area">
-                        <a href="https://fenitec.uz/?p=35" class="name">Прямоугольный провод с бумажной изоляцией из
-                            алюминия</a>
-                    </div>
-                </div>
-                <!-- single team one start -->
-            </div>
+                <?php endforeach;
+            endif;
+            ?>
         </div>
     </div>
 </div>
